@@ -1,0 +1,184 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+input,
+select,
+button {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#total {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#expense-list {
+  list-style: none;
+  padding: 0;
+}
+
+.expense-item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 5px solid #4caf50;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.expense-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.expense-details {
+  flex-grow: 1;
+}
+
+.expense-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.expense-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.expense-description {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.expense-category {
+  background: #e8f5e8;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.expense-timestamp {
+    margin: 5px 8px;
+}
+
+.delete-btn {
+  background: #ff4757;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background: #ff3838;
+}
+
+#empty {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Category-specific border colors */
+.expense-item[data-category="food"] {
+  border-left-color: #ff6b6b;
+}
+
+.expense-item[data-category="transport"] {
+  border-left-color: #4ecdc4;
+}
+
+.expense-item[data-category="shopping"] {
+  border-left-color: #45b7d1;
+}
+
+.expense-item[data-category="bills"] {
+  border-left-color: #f9ca24;
+}
+
+.expense-item[data-category="other"] {
+  border-left-color: #6c5ce7;
+}
+
+/* Responsive design */
+@media (max-width: 780px) {
+  form {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

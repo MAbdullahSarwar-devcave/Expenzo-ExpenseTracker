@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Expenzo</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <h1>💰Expenzo</h1>
+
+        <form id="expense-form">
+            <input type="number" id="amount" placeholder="Amount" required>
+            <input type="text" id="description" placeholder="Description" required>
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="shopping">Shopping</option>
+                <option value="bills">Bills</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="submit">Add Expense</button>
+        </form>
+
+        <div id="total">Total: 0 pkr</div>
+
+        <ul id="expense-list"></ul>
+
+        <p id="empty">No expenses added yet.</p>
+        
+        <script src="./index.js" async defer></script>
+    </body>
+</html>
