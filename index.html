@@ -26,6 +26,30 @@
 
         <div id="total">Total: 0 pkr</div>
 
+        <div id="controls">
+            <select id="filter-category">
+                <option value="">Filter by Category</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="shopping">Shopping</option>
+                <option value="bills">Bills</option>
+                <option value="other">Other</option>
+            </select>
+
+            <select id="sort-by">
+                <option value="">Sort by</option>
+                <option value="date-desc">Date: Newest First</option>
+                <option value="date-asc">Date: Oldest First</option>
+                <option value="amount-desc">Amount: High to Low</option>
+                <option value="amount-asc">Amount: Low to High</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="last-5-toggle">
+                Show only last 5
+            </label>
+        </div>
+
         <ul id="expense-list"></ul>
 
         <p id="empty">No expenses added yet.</p>

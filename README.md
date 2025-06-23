@@ -16,6 +16,8 @@
 - Persist data using `localStorage`
 - Responsive and clean UI
 - Dynamic category color indicators
+- Filters by category/date/amount
+- Option to see only last 5 expenses
 
 ---
 

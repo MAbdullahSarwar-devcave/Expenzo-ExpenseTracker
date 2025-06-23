@@ -4,6 +4,11 @@ let descriptionInput = document.getElementById("description")
 let categorySelect = document.getElementById("category")
 
 let total = document.getElementById("total")
+
+let filterCategorySelect = document.getElementById("filter-category")
+let sortBySelect = document.getElementById("sort-by")
+let last5Toggle = document.getElementById("last-5-toggle")
+
 let expenseList = document.getElementById("expense-list")
 let emptyState = document.getElementById("empty")
 
@@ -14,13 +19,45 @@ function updateLocalStorage() {
 }
 
 function deleteExpense(index) {
-
+  expenses.splice(index, 1);
+  updateLocalStorage();
+  renderExpenses();
 }
 
 function renderExpenses() {
     expenseList.innerHTML = ''
-    if(expenses.length === 0){
-        emptyState.style.display = 'block'
+
+    let filteredExpenses = [...expenses]
+
+    if (last5Toggle.checked) {
+        filterCategorySelect.value = ''
+        sortBySelect.value = ''
+        filteredExpenses = filteredExpenses.slice(-5)
+    }
+    
+    const selectedCategory = filterCategorySelect.value
+    const sortBy = sortBySelect.value
+
+    if(selectedCategory) {
+        filteredExpenses = filteredExpenses.filter(expense => expense.category.toLowerCase() === selectedCategory.toLowerCase())
+    }
+
+    if(sortBy === 'amount-asc')
+        filteredExpenses.sort((a, b) => a.amount - b.amount)
+    else if(sortBy === 'amount-desc')
+        filteredExpenses.sort((a, b) => b.amount - a.amount)
+    else if(sortBy === 'date-asc')
+        filteredExpenses.sort((a, b) => {
+            return a.timestamp - b.timestamp
+        })
+    else if(sortBy === 'date-desc')
+        filteredExpenses.sort((a, b) => b.timestamp - a.timestamp)
+
+    
+
+
+    if(filteredExpenses.length === 0){
+    emptyState.style.display = 'block'
         total.textContent = 'Total: 0 pkr'
         return
     }
@@ -28,7 +65,9 @@ function renderExpenses() {
     emptyState.style.display = 'none'
     let t = 0
 
-    expenses.forEach((expense, index) => {
+    filteredExpenses.reverse()
+
+    filteredExpenses.forEach((expense, index) => {
         const li = document.createElement('li')
         
         li.className = 'expense-item'
@@ -80,5 +119,9 @@ form.addEventListener("submit", (e) => {
     form.reset()
 
 })
+
+filterCategorySelect.addEventListener("change", renderExpenses)
+sortBySelect.addEventListener("change", renderExpenses)
+last5Toggle.addEventListener("change", renderExpenses)
 
 renderExpenses()
