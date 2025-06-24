@@ -63,7 +63,8 @@ function renderExpenses() {
     emptyState.style.display = 'none'
     let t = 0
 
-    filteredExpenses.reverse()
+    if(!sortBy)
+        filteredExpenses.reverse()
 
     filteredExpenses.forEach((expense, index) => {
         const li = document.createElement('li')
