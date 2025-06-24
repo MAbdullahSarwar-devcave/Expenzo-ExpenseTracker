@@ -54,8 +54,6 @@ function renderExpenses() {
         filteredExpenses.sort((a, b) => b.timestamp - a.timestamp)
 
     
-
-
     if(filteredExpenses.length === 0){
     emptyState.style.display = 'block'
         total.textContent = 'Total: 0 pkr'

@@ -35,3 +35,7 @@ Expenzo-ExpenseTracker/
 ├── styles.css
 ├── script.js
 └── README.md
+
+## 📸 Screenshot
+
+![Expenzo App Screenshot](./screenshot.png)
