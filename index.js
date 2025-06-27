@@ -1,3 +1,4 @@
+
 let form = document.getElementById("expense-form")  // for submit handler
 let amountInput = document.getElementById("amount")
 let descriptionInput = document.getElementById("description")
